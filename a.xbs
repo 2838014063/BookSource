@@ -1,0 +1,91 @@
+ '阅友小说': {
+    chapterContent: {
+      validConfig: '',
+      content: "//div[@class='con']/p",
+      actionID: 'chapterContent',
+      host: 'http://m.suixkan.com',
+      httpHeaders: [Object],
+      responseFormatType: 'html',
+      parserID: 'DOM'
+    },
+    enable: 1,
+    shupingList: { actionID: 'shupingList', parserID: 'DOM' },
+    authorId: '',
+    bookDetail: {
+      validConfig: '',
+      actionID: 'bookDetail',
+      status: "//div[@class='face-info flex-item']/div[5]",
+      wordCount: "//div[@class='face-info flex-item']/div[4]",
+      lastChapterTitle: "//div[@id='idNewIds']/div[1]",
+      host: 'http://m.suixkan.com',
+      cat: "//div[@class='face-info flex-item']/div[3] ||@js:\n" +
+        'return result.replace(/分类：/,"");',
+      httpHeaders: [Object],
+      responseFormatType: 'html',
+      parserID: 'DOM'
+    },
+    bookWorld: { '图书': [Object], '女频': [Object], '男频': [Object] },
+    shudanList: {},
+    sourceUrl: 'http://m.suixkan.com',
+    relatedWord: { actionID: 'relatedWord', parserID: 'DOM' },
+    weight: '99',
+    sourceName: '阅友小说',
+    httpHeaders: {
+      Referer: 'http://m.suixkan.com',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.63',
+      cookie: ''
+    },
+    miniAppVersion: '2.53.2',
+    shudanDetail: { actionID: 'shudanDetail', parserID: 'DOM' },
+    lastModifyTime: '1670240120.368529',
+    shupingHome: { actionID: 'shupingHome', parserID: 'DOM' },
+    searchShudan: { actionID: 'searchShudan', parserID: 'DOM' },
+    searchBook: {
+      responseFormatType: 'html',
+      author: "//div[@class='v-other flex-v-end']/div[1]",
+      bookName: "//div[@class='v-title']",
+      httpHeaders: [Object],
+      requestInfo: '@js:\r\n' +
+        '\r\n' +
+        'let url = "http://m.suixkan.com/s/1.html"\r\n' +
+        'let hp = {\r\n' +
+        '    "keyword": params.keyWord,\r\n' +
+        '    "page": params.pageIndex\r\n' +
+        '}\r\n' +
+        '\r\n' +
+        'return {\r\n' +
+        '    "url": url,\r\n' +
+        '    "POST": false,\r\n' +
+        '    "httpParams": hp,\r\n' +
+        '    "httpHeaders": config.httpHeaders,\r\n' +
+        '    "forbidCookie": true,\r\n' +
+        '    "cacheTime": 600\r\n' +
+        '}',
+      host: 'http://m.suixkan.com',
+      actionID: 'searchBook',
+      desc: "//div[@class='v-intro']",
+      cover: '//img/@src',
+      validConfig: '',
+      list: "//div[@class='v-list']/div",
+      parserID: 'DOM',
+      wordCount: "//div[@class='v-other flex-v-end']/div[2]",
+      detailUrl: "//div[@class='v-list-item flex']/@onclick || @js:\n" +
+        'let one =result.match(/\\/b\\//);\n' +
+        'let two = result.match(/\\d+/);\n' +
+        'return config.host+one+two;',
+      moreKeys: [Object]
+    },
+    chapterList: {
+      validConfig: '',
+      actionID: 'chapterList',
+      requestInfo: '@js:\nreturn result.replace(/b/,"c");',
+      title: '//a',
+      host: 'http://m.suixkan.com',
+      httpHeaders: [Object],
+      list: "//ul[@class='catalog_ls']//li",
+      responseFormatType: 'html',
+      parserID: 'DOM',
+      url: '//a/@href'
+    }
+  }
+
